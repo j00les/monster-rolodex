@@ -7,9 +7,8 @@ class App extends Component {
     super();
     this.state = {
       monsters: [],
-      searchState: "",
+      searchField: "",
     };
-    this.onSearchChange = this.onSearchChange.bind(this);
   }
 
   componentDidMount() {
@@ -22,12 +21,13 @@ class App extends Component {
       });
   }
 
-  onSearchChange(e) {
+  //search method
+  onSearchChange = e => {
     const searchField = e.target.value.toLocaleLowerCase();
     this.setState(() => {
       return { searchField };
     });
-  }
+  };
 
   render() {
     const { monsters, searchField } = this.state;
