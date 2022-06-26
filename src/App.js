@@ -5,9 +5,12 @@ import SearchBox from "./components/search-box/search-box.component";
 
 // ---- using functional component
 const App = () => {
-  const [searchField, useSearchField] = useState("");
+  console.log("render");
+  const [searchField, setSearchField] = useState("");
+  console.log(searchField);
   const onSearchChange = e => {
     const searchFieldString = e.target.value.toLocaleLowerCase();
+    setSearchField(searchFieldString);
   };
 
   return (
@@ -15,10 +18,10 @@ const App = () => {
       <h1 className="app-title">Monsters Rolodex</h1>
       <SearchBox
         placeholder="search monster"
-        onchangehandler={onSearchChange}
-        classname="monsters-search-box"
+        onChangeHandler={onSearchChange}
+        className="monsters-search-box"
       />
-      <CardList monsters={filteredMonsters} />
+      {/* <CardList monsters={filteredMonsters} /> */}
     </div>
   );
 };
