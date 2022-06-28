@@ -10,9 +10,12 @@ const App = () => {
 
   console.log("render");
 
-  // fetch("https://jsonplaceholder.typicode.com/users")
-  //   .then(res => res.json())
-  //   .then(users => setMonsters(users));
+  useEffect(() => {
+    console.log("effect fired");
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(res => res.json())
+      .then(users => setMonsters(users));
+  }, []);
 
   const onSearchChange = e => {
     const searchFieldString = e.target.value.toLocaleLowerCase();
